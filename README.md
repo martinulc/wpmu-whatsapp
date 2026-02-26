@@ -2,6 +2,8 @@
 
 > Fixed WhatsApp chat button for WordPress — schedule-aware, visibility controls per post type and page, pre-filled message. Zero third-party dependencies, zero theme conflicts.
 
+![WhatsApp button preview](img/preview.png)
+
 ---
 
 ## Features
@@ -62,10 +64,14 @@ No external libraries, no Composer dependencies, no npm build step.
 | **Button Position** | Bottom right (default) or bottom left. |
 | **Button Label** | Optional text shown next to the icon. Leave empty for a compact icon-only button. |
 
+![Admin — General tab](img/admin-preview-general.png)
+
 ### Messages tab
 | Field | Description |
 |---|---|
 | **Default Message** | Pre-filled text that opens in WhatsApp when the visitor clicks the button. Leave empty to open WhatsApp with no pre-filled message. |
+
+![Admin — Messages tab](img/admin-preview-messages.png)
 
 ### Schedule tab
 | Field | Description |
@@ -73,12 +79,16 @@ No external libraries, no Composer dependencies, no npm build step.
 | **Active Days** | Checkboxes for Monday–Sunday. Only checked days will show the button. Leave all unchecked to disable the schedule entirely. |
 | **Active Hours** | From / To time range. Uses the WordPress site timezone shown below the field. |
 
+![Admin — Schedule tab](img/admin-preview-schedule.png)
+
 ### Visibility tab
 | Field | Description |
 |---|---|
 | **Hide on Special Pages** | Front page, Blog index, Archives, Search results, 404 — each controlled independently. |
 | **Hide on Post Types** | Hides the button on singular pages of the selected post type. Lists all post types with an admin UI, including custom ones. |
 | **Hide on Specific Posts / Pages** | Multi-select of all published pages. Hold Ctrl (Windows) or Cmd (Mac) to select multiple. |
+
+![Admin — Visibility tab](img/admin-preview-visibility.png)
 
 ---
 
@@ -101,19 +111,6 @@ Rules are checked in order; the first match hides the button:
 3. **Specific page ID** — applies only on singular pages; compares `get_the_ID()` against the exclusion list
 
 If none of the rules match, the button is shown.
-
----
-
-## File structure
-
-```
-wpmu-whatsapp/
-├── wpmu-whatsapp.php                      # Plugin bootstrap, activation hook
-├── includes/
-│   ├── class-wpmu-whatsapp-admin.php      # Settings page, Settings API
-│   └── class-wpmu-whatsapp-frontend.php   # wp_footer hook, schedule & visibility checks, button render
-└── languages/                             # Translation files (.po / .mo)
-```
 
 ---
 
